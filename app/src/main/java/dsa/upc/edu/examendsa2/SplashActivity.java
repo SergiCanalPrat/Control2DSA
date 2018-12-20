@@ -17,15 +17,16 @@ import android.util.Log;
                     PreferenceManager.getDefaultSharedPreferences(this);
             boolean registered = sharedPref.getBoolean("registered", false);
             Log.d("tag", "Registered: " + registered);
-            Class where;
+            Class dest;
             if (!registered) {
-                where = LoginActivity.class;
+                dest = LoginActivity.class;
             } else {
-                where = MainActivity.class;
+                dest = MainActivity.class;
             }
-            Intent intent = new Intent(this, where);
-            startActivity(intent);
 
+            Log.d("SplashActivity","Entra al SplashActivity");
+            Intent intent = new Intent(this, dest);
+            startActivity(intent);
             finish();
         }
 
