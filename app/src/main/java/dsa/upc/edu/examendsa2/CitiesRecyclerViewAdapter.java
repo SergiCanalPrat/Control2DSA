@@ -28,7 +28,7 @@ public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<CitiesRecycl
         public ViewHolder(View v) {
             super(v);
             ine = (TextView) v.findViewById(android.R.id.ine);
-            nom = (TextView) v.findViewById(android.R.id.nom);
+            nom = (TextView) v.findViewById(android.R.id.nom); // aaas
             escut = (ImageView) v.findViewById(android.R.id.escut);
 
         }
