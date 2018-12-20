@@ -16,14 +16,14 @@ import android.util.Log;
             final SharedPreferences sharedPref =
                     PreferenceManager.getDefaultSharedPreferences(this);
             boolean registered = sharedPref.getBoolean("registered", false);
-            Log.d("minim2", "Registered: " + registered);
-            Class dest;
+            Log.d("tag", "Registered: " + registered);
+            Class where;
             if (!registered) {
-                dest = LoginActivity.class;
+                where = LoginActivity.class;
             } else {
-                dest = MainActivity.class;
+                where = MainActivity.class;
             }
-            Intent intent = new Intent(this, dest);
+            Intent intent = new Intent(this, where);
             startActivity(intent);
 
             finish();
