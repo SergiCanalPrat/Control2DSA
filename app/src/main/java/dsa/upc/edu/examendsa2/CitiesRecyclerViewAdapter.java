@@ -27,15 +27,15 @@ public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<CitiesRecycl
 
         public ViewHolder(View v) {
             super(v);
-            ine = (TextView) v.findViewById(android.R.id.ine);
-            nom = (TextView) v.findViewById(android.R.id.nom); // aaas
-            escut = (ImageView) v.findViewById(android.R.id.escut);
+            ine = (TextView) v.findViewById(R.id.ine);
+            nom = (TextView) v.findViewById(R.id.nom); // aaas
+            escut = (ImageView) v.findViewById(R.id.escut);
 
         }
     }
 
     //Constructor
-    public CitiesRecyclerViewAdapter(List<Element> data) {
+    public CitiesRecyclerViewAdapter(List<Element> data, Context context) {
         this.data = data;
         this.context = context;
     }
@@ -43,7 +43,7 @@ public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<CitiesRecycl
     @Override
     public CitiesRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v;
-        v = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.recyclercities, parent, false);
+        v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclercities, parent, false);
         return new ViewHolder(v);
     }
 

@@ -28,12 +28,13 @@ public class MainActivity extends Activity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
+        dibaAPI = RetrofitFactory.getDibaApi(DibaAPI.BASE_URL).create(DibaAPI.class);
 
+        cities();
 
     }
 
     private void cities() {
-        dibaAPI = RetrofitFactory.getDibaApi(DibaAPI.BASE_URL).create(DibaAPI.class);
         //showProgress(true);
         Call<Cities> callCitiesList = dibaAPI.cities("1", "11");
         callCitiesList.enqueue(new Callback<Cities>() {
@@ -41,7 +42,7 @@ public class MainActivity extends Activity {
             public void onResponse(Call<Cities> call, Response<Cities> response) {
                 if (response.isSuccessful()) {
                     Cities cities = response.body();
-                    recyclerView.setAdapter(new CitiesRecyclerViewAdapter(cities.getElements()));
+                    recyclerView.setAdapter(new CitiesRecyclerViewAdapter(cities.getElements(), MainActivity.this));
                     //showProgress(false);
 
                 } else {
